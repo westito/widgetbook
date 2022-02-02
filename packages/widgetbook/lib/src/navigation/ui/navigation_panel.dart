@@ -22,7 +22,10 @@ class NavigationPanel extends StatefulWidget {
 }
 
 class _NavigationPanelState extends State<NavigationPanel> {
-  final ScrollController controller = ScrollController();
+  static double _scrollPosition = 0;
+
+  final ScrollController controller =
+      ScrollController(initialScrollOffset: _scrollPosition);
   WidgetbookUseCase? selectedComponent;
 
   final TextEditingController search = TextEditingController();
@@ -31,6 +34,14 @@ class _NavigationPanelState extends State<NavigationPanel> {
   Widget _buildCategory(BuildContext context, int i) {
     final item = widget.categories[i];
     return CategoryTile(category: item);
+  }
+
+  @override
+  void initState() {
+    controller.addListener(() {
+      _scrollPosition = controller.offset;
+    });
+    super.initState();
   }
 
   @override
