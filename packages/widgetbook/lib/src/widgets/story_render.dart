@@ -50,7 +50,16 @@ class _StoryState extends State<StoryRender> {
 
     final deviceProvider = DeviceProvider.of(context)!;
     if (deviceProvider.state.currentDevice.type == DeviceType.responsive) {
-      return DeviceRender(story: story);
+      return InteractiveViewer(
+        minScale: 0.25,
+        maxScale: 5,
+        transformationController: controller,
+        onInteractionUpdate: (ScaleUpdateDetails details) {
+          ZoomProvider.of(context)!
+              .setScale(controller.value.getMaxScaleOnAxis());
+        },
+        child: DeviceRender(story: story),
+      );
     } else {
       return InteractiveViewer(
         boundaryMargin: const EdgeInsets.all(double.infinity),
