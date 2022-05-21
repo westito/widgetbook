@@ -7,17 +7,17 @@ issue_tracker: https://github.com/widgetbook/widgetbook/issues
 documentation: https://github.com/widgetbook/widgetbook/tree/main/packages/widgetbook
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.17.0"
+  flutter: ">=3.0.0"
 
 dependencies:
-  collection: ^1.15.0
+  collection: ^1.16.0
   flutter:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
   meta: ^1.7.0
-  vector_math: ^2.1.0
+  vector_math: ^2.1.2
   widgetbook_models: any
 
 # for development
@@ -28,8 +28,8 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mocktail: ^0.1.4
-  very_good_analysis: ^2.3.0
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.0.0
 
 flutter:
   assets:
